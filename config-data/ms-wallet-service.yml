@@ -20,3 +20,24 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
+resilience4j.circuitbreaker:
+  instances:
+    ms-categories-service:
+      register-health-indicator: true
+      sliding-window-size: 10
+      minimum-number-of-calls: 5
+      failure-rate-threshold: 50
+      wait-duration-in-open-state: 10s
+      automatic-transition-from-open-to-half-open-enabled: true
+      permitted-number-of-calls-in-half-open-state: 3
+    ms-events-service:
+      register-health-indicator: true
+      sliding-window-size: 10
+      failure-rate-threshold: 50
+      wait-duration-in-open-state: 10s
+      automatic-transition-from-open-to-half-open-enabled: true
+    ms-auth-service:
+      register-health-indicator: true
+      sliding-window-size: 10
+      failure-rate-threshold: 50
+      wait-duration-in-open-state: 10s
