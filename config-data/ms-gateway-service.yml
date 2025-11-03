@@ -13,31 +13,31 @@ spring:
           lower-case-service-id: true
 
       routes:
-        - id: ms-cancha
-          uri: lb://ms-cancha
+        - id: ms-categories-service
+          uri: lb://ms-categories-service
           predicates:
-            - Path=/canchas/**
+            - Path=/categories/**
           filters:
             - name: AuthFilter
 
-        - id: ms-reserva-cancha
-          uri: lb://ms-reserva-cancha
+        - id: ms-goals-service
+          uri: lb://ms-goals-service
           predicates:
-            - Path=/reservas/**
+            - Path=/goals/**
           filters:
             - name: AuthFilter
 
-        - id: ms-ubicacion
-          uri: lb://ms-ubicacion
+        - id: ms-wallet-service
+          uri: lb://ms-wallet-service
           predicates:
-            - Path=/ubicaciones/**
+            - Path=/transactions/**, /wallets/**
           filters:
             - name: AuthFilter
 
-        - id: ms-usuario
-          uri: lb://ms-usuario
+        - id: ms-events-service
+          uri: lb://ms-events-service
           predicates:
-            - Path=/usuarios/**
+            - Path=/events/**
           filters:
             - name: AuthFilter
 

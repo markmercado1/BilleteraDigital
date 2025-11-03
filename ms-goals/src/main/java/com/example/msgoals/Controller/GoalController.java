@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/goals")
+@RequestMapping("/goals")
 @RequiredArgsConstructor
 public class GoalController {
 

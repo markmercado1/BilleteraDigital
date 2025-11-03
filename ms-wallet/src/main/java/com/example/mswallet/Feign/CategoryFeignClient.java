@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "ms-categories", path = "/api/categories")
+@FeignClient(name = "ms-categories-service", path = "/categories")
 public interface CategoryFeignClient {
     
     @GetMapping("/{id}")
     CategoryDTO getCategoryById(@PathVariable("id") Long id);
-    
-    @GetMapping("/{categoryId}/subcategories/{subcategoryId}")
+
+    @GetMapping("/{categoryId}/subcategories/{subId}")
     SubcategoryDTO getSubcategoryById(
         @PathVariable("categoryId") Long categoryId,
-        @PathVariable("subcategoryId") Long subcategoryId
+        @PathVariable("subId") Long subcategoryId
     );
     
     @GetMapping("/user/{userId}")

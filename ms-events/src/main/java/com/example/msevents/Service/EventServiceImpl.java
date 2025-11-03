@@ -60,17 +60,7 @@ public class EventServiceImpl  {
         return mapToResponse(event);
     }
 
-    public EventResponseDTO updateEventSpent(Long id, BigDecimal amount) {
-        Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Evento no encontrado"));
 
-        event.setSpent(event.getSpent().add(amount));
-        eventRepository.save(event);
-
-        log.info("Evento {} actualizado: nuevo gasto total {}", event.getId(), event.getSpent());
-        return mapToResponse(event);
-    }
-    @Override
     public EventResponseDTO updateEventSpent(Long id, EventUpdateSpentDTO updateDTO) {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Evento no encontrado"));

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@FeignClient(name = "ms-events", path = "/api/events")
+@FeignClient(name = "ms-events-service", path = "/events")
 public interface EventFeignClient {
     
     @GetMapping("/{id}")
